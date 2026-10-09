@@ -1,4 +1,4 @@
-CREATE DATABASE control_1;
+CREATE DATABASE IF NOT EXISTS control_1;
 
 USE control_1;
 
@@ -105,5 +105,3 @@ CREATE TABLE IF NOT EXISTS Pago_Gasto_Edificio (
     CONSTRAINT gasto_edificio_pago_gasto_edificio_fk
     FOREIGN KEY (id_gasto_edificio) REFERENCES Gasto_Edificio(id)
 );
-
-
