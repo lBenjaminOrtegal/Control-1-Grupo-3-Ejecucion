@@ -13,4 +13,4 @@
 
 ### Diagrama MER
 
-![Diagrama MER BD Administracion de Edificio de Departamentos](./DiagramaMER.pdf)
+![Diagrama MER BD Administracion de Edificio de Departamentos](./DiagramaMER.png)
