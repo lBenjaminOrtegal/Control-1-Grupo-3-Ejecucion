@@ -31,4 +31,16 @@ ON Departamento.id_edificio = maximo_por_piso.id_edificio
 AND Departamento.piso = maximo_por_piso.piso
 AND Departamento.habitantes = maximo_por_piso.maximo_habitantes;
 
+-- 10. Lista de tipos de departamentos más pequeños por edificio.
 
+SELECT DISTINCT d.id_edificio, td.id AS id_tipo_departamento, td.nombre AS tipo_departamento, td.superficie AS superficie
+FROM Departamento d 	-- Lo puse desde depto y no edificio porque así se trabaja solo con los edificios que tengan deptos registrados y no los vacíos.
+JOIN Tipo_departamento td ON td.id = d.id_tipo_departamento
+JOIN (
+	SELECT d.id_edificio AS id_edificio, MIN(td.superficie) AS min_superficie
+	FROM Departamento d
+	JOIN Tipo_Departamento td ON td.id = d.id_tipo_departamento
+	GROUP BY d.id_edificio) minimo_por_edificio 
+ON minimo_por_edificio.id_edificio = d.id_edificio
+AND minimo_por_edificio.min_superficie = td.superficie
+ORDER BY d.id_edificio;

@@ -51,16 +51,16 @@ INSERT INTO Edificio (nombre, direccion, numero, tipo, id_comuna, id_administrad
 -- Superficie en m2 para facilitar comparación del tamaño
 -- ========================================================
 INSERT INTO Tipo_Departamento (nombre, superficie) VALUES
-('Studio', '28'),
-('1D 1B', '36'),
-('2D 1B', '50'),
-('2D 2B', '62'),
-('3D 2B', '78'),
-('3D 3B', '95'),
-('Duplex 3D', '115'),
-('Penthouse 4D', '160'),
-('Studio Deluxe', '32'),
-('Family Premium 4D 3B', '140');
+('Studio', 28),
+('1D 1B', 36),
+('2D 1B', 50),
+('2D 2B', 62),
+('3D 2B', 78),
+('3D 3B', 95),
+('Duplex 3D', 115),
+('Penthouse 4D', 160),
+('Studio Deluxe', 32),
+('Family Premium 4D 3B', 140);
 
 -- ========================================================
 -- 5. Departamento (12 filas)
