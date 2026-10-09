@@ -20,6 +20,27 @@ JOIN Gasto_Comun gc ON gc.id_edificio = e.id
 WHERE gc.fecha >= DATE_SUB(CURRENT_DATE(), INTERVAL 3 MONTH)
 AND pgcd.estado_pago = "Pendiente";
 
+
+-- 2. Total recaudado en gastos comunes por edificio por mes.
+SELECT 
+    e.nombre AS nombre_edificio,
+    YEAR(p.fecha_pago) AS anio,
+    MONTH(p.fecha_pago) AS mes,
+    SUM(p.monto) AS total_recaudado
+FROM Pago_Gasto_Comun_Departamento p
+JOIN Gasto_Comun gc ON p.id_gasto_comun = gc.id
+JOIN Edificio e ON gc.id_edificio = e.id
+WHERE p.estado_pago = 'Pagado'
+GROUP BY 
+    e.id, 
+    e.nombre, 
+    YEAR(p.fecha_pago), 
+    MONTH(p.fecha_pago)
+ORDER BY 
+    anio DESC, 
+    mes DESC, 
+    nombre_edificio ASC;
+
 -- 4. Tipo de depto con los gastos comunes más caros.
 SELECT td.nombre AS tipo_departamento, ROUND(AVG(pgcd.monto)) AS gasto_comun_promedio
 FROM Tipo_Departamento td
@@ -47,6 +68,9 @@ JOIN (
 ON Departamento.id_edificio = maximo_por_piso.id_edificio
 AND Departamento.piso = maximo_por_piso.piso
 AND Departamento.habitantes = maximo_por_piso.maximo_habitantes;
+
+-- 9. Lista de edificios que menos gasta por mes.
+
 
 -- 10. Lista de tipos de departamentos más pequeños por edificio.
 
