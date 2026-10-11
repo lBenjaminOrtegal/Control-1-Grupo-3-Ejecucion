@@ -76,6 +76,12 @@ ON Departamento.id_edificio = maximo_por_piso.id_edificio
 AND Departamento.piso = maximo_por_piso.piso
 AND Departamento.habitantes = maximo_por_piso.maximo_habitantes;
 
+-- 8. Lista de tipos de departamento por edificio, mostrar la cantidad de departamentos por tipo.
+SELECT Edificio.nombre as edificio, Tipo_Departamento.id as id_tipo_departamento, Tipo_Departamento.nombre as tipo_departamento, COUNT(Departamento.id) as cantidad_departamentos
+FROM Tipo_Departamento
+JOIN Departamento ON Tipo_Departamento.id = Departamento.id_tipo_departamento
+JOIN Edificio ON Edificio.id = Departamento.id_edificio
+GROUP BY Edificio.id, Edificio.nombre, Tipo_Departamento.id, Tipo_Departamento.nombre;
 
 -- 9. Lista de edificios que menos gasta por mes.
 WITH GastosPorEdificio AS (
