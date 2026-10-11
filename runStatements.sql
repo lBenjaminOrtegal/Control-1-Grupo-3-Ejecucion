@@ -41,6 +41,25 @@ ORDER BY
     mes DESC, 
     nombre_edificio ASC;
 
+--3. Total de gastos del edificio pagados por mes.
+SELECT
+    e.nombre AS nombre_edificio,
+    YEAR(p.fecha_pago) AS anio,
+    MONTH(p.fecha_pago) AS mes,
+    SUM(p.monto_pagado) AS total_pagado
+FROM Pago_Gasto_Edificio p
+JOIN Gasto_Edificio ge ON p.id_gasto_edificio = ge.id
+JOIN Edificio e ON ge.id_edificio = e.id
+GROUP BY
+    e.id,
+    e.nombre,
+    YEAR(p.fecha_pago),
+    MONTH(p.fecha_pago)
+ORDER BY
+    anio DESC,
+    mes DESC,
+    nombre_edificio ASC;
+
 -- 4. Tipo de depto con los gastos comunes más caros.
 SELECT td.nombre AS tipo_departamento, ROUND(AVG(pgcd.monto)) AS gasto_comun_promedio
 FROM Tipo_Departamento td
