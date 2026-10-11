@@ -50,6 +50,13 @@ GROUP BY td.id, td.nombre
 ORDER BY gasto_comun_promedio DESC
 LIMIT 1;
 
+-- 5. Lista de edificios por comuna con la cantidad de departamentos.
+SELECT Comuna.nombre as nombre_comuna, Edificio.id as id_edificio, Edificio.nombre as nombre_edificio, COUNT(Departamento.id) as cantidad_departamentos
+FROM Edificio
+JOIN Comuna ON Edificio.id_comuna = Comuna.id
+LEFT JOIN Departamento ON Departamento.id_edificio = Edificio.id
+GROUP BY Comuna.nombre, Edificio.id, Edificio.nombre;
+
 -- 6. Administrador con más edificios a cargo.
 SELECT Administrador.rut, Administrador.nombre, Administrador.apellido, COUNT(Edificio.id) AS cantidad_edificios
 FROM Administrador
