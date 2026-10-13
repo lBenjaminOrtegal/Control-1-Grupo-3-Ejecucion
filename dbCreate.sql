@@ -112,7 +112,7 @@ CREATE TABLE IF NOT EXISTS Pago_Gasto_Comun_Departamento (
 
 CREATE TABLE IF NOT EXISTS Pago_Gasto_Edificio (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    monto_total DECIMAL(12, 2) NOT NULL,
+    monto DECIMAL(12, 2) NOT NULL,
     fecha_pago DATE NOT NULL,
 
     id_edificio INT NOT NULL,
