@@ -110,6 +110,17 @@ CREATE TABLE IF NOT EXISTS Pago_Gasto_Comun_Departamento (
      FOREIGN KEY (id_departamento) REFERENCES Departamento(id)
 );
 
+CREATE TABLE IF NOT EXISTS Pago_Gasto_Edificio (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    monto_total DECIMAL(12, 2) NOT NULL,
+    fecha_pago DATE NOT NULL,
+
+    id_edificio INT NOT NULL,
+    
+    CONSTRAINT edificio_pago_gasto_edificio_fk 
+    FOREIGN KEY (id_edificio) REFERENCES Edificio(id)
+);
+
 CREATE TABLE IF NOT EXISTS Gasto_Edificio (
 	id INT AUTO_INCREMENT PRIMARY KEY,
     descripcion TEXT NOT NULL,
@@ -117,19 +128,8 @@ CREATE TABLE IF NOT EXISTS Gasto_Edificio (
     fecha_emision DATE NOT NULL,
     fecha_vencimiento DATE NOT NULL,
     
-    id_edificio INT NOT NULL,
+    id_pago_gasto_edificio INT NOT NULL,
     
-    CONSTRAINT edificio_gasto_edificio_fk
-    FOREIGN KEY (id_edificio) REFERENCES Edificio(id)
-);
-
-CREATE TABLE IF NOT EXISTS Pago_Gasto_Edificio (
-	id INT AUTO_INCREMENT PRIMARY KEY,
-    monto DECIMAL(12, 2) NOT NULL,
-    fecha_pago DATE NOT NULL,
-    
-    id_gasto_edificio INT NOT NULL,
-    
-    CONSTRAINT gasto_edificio_pago_gasto_edificio_fk
-    FOREIGN KEY (id_gasto_edificio) REFERENCES Gasto_Edificio(id)
+    CONSTRAINT pago_gasto_edificio_gasto_edificio_fk
+    FOREIGN KEY (id_pago_gasto_edificio) REFERENCES Pago_Gasto_Edificio(id)
 );
