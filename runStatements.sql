@@ -93,15 +93,14 @@ GROUP BY Edificio.id, Edificio.nombre, Tipo_Departamento.id, Tipo_Departamento.n
 
 -- 9. Lista de edificios que menos gasta por mes.
 WITH GastosPorEdificio AS (
-    -- gasto por edificio
-    SELECT 
-        YEAR(ge.fecha_emision) AS anio,
-        MONTH(ge.fecha_emision) AS mes,
+    SELECT   -- gasto de cada edificio por mes
+        YEAR(pge.fecha_pago) AS anio,
+        MONTH(pge.fecha_pago) AS mes,
         e.nombre AS nombre_edificio,
-        SUM(ge.monto) AS total_gasto
-    FROM Gasto_Edificio ge
-    JOIN Edificio e ON ge.id_edificio = e.id
-    GROUP BY YEAR(ge.fecha_emision), MONTH(ge.fecha_emision), e.id, e.nombre
+        SUM(pge.monto) AS total_gasto
+    FROM Pago_Gasto_Edificio pge
+    JOIN Edificio e ON pge.id_edificio = e.id
+    GROUP BY YEAR(pge.fecha_pago), MONTH(pge.fecha_pago), e.id, e.nombre
 )
 SELECT 
     t1.anio,
@@ -109,16 +108,16 @@ SELECT
     t1.nombre_edificio,
     t1.total_gasto
 FROM GastosPorEdificio t1
-JOIN (
-    -- tabla temporal para buscar el mínimo por mes
+JOIN (-- mínimo absoluto por cada mes
     SELECT anio, mes, MIN(total_gasto) AS minimo_gasto
     FROM GastosPorEdificio
     GROUP BY anio, mes
 ) t2 
-ON t1.anio = t2.anio 
+ON t1.anio = t2.anio
    AND t1.mes = t2.mes 
-   AND t1.total_gasto = t2.minimo_gasto -- conectar el edificio cuyo gasto coincida con el minimo histórico de ese mes
+   AND t1.total_gasto = t2.minimo_gasto
 ORDER BY t1.anio DESC, t1.mes DESC;
+
 
 -- 10. Lista de tipos de departamentos más pequeños por edificio.
 SELECT DISTINCT d.id_edificio, td.id AS id_tipo_departamento, td.nombre AS tipo_departamento, td.superficie AS superficie
