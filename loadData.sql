@@ -104,29 +104,29 @@ INSERT INTO Depende_Tipo_Gasto_Comun_Tipo_Departamento (id_tipo_gasto_comun, id_
 -- =====================================================
 INSERT INTO Gasto_Comun (fecha_emision, fecha_vencimiento, monto, id_edificio, id_tipo_gasto_comun) VALUES
 -- Edificio 1: Torre Central (id: 1, 2, 3)
-('2026-08-01', '2026-08-15', 500000.00, 1, 1),
-('2026-09-01', '2026-09-15', 520000.00, 1, 1),
-('2026-10-01', '2026-10-15', 510000.00, 1, 1),
+('2026-08-01', '2026-08-15', 500000, 1, 1),
+('2026-09-01', '2026-09-15', 520000, 1, 1),
+('2026-10-01', '2026-10-15', 510000, 1, 1),
 
 -- Edificio 2: Parque Almagro (id: 4, 5, 6)
-('2026-08-01', '2026-08-15', 300000.00, 2, 1),
-('2026-09-01', '2026-09-15', 310000.00, 2, 1),
-('2026-10-01', '2026-10-15', 305000.00, 2, 1),
+('2026-08-01', '2026-08-15', 300000, 2, 1),
+('2026-09-01', '2026-09-15', 310000, 2, 1),
+('2026-10-01', '2026-10-15', 305000, 2, 1),
 
 -- Edificio 4: Plaza Ñuñoa (id: 7, 8, 9)
-('2026-08-01', '2026-08-15', 400000.00, 4, 1),
-('2026-09-01', '2026-09-15', 410000.00, 4, 1),
-('2026-10-01', '2026-10-15', 420000.00, 4, 1),
+('2026-08-01', '2026-08-15', 400000, 4, 1),
+('2026-09-01', '2026-09-15', 410000, 4, 1),
+('2026-10-01', '2026-10-15', 420000, 4, 1),
 
 -- Edificio 5: Espacio Florida (id: 10, 11, 12)
-('2026-08-01', '2026-08-15', 220000.00, 5, 1),
-('2026-09-01', '2026-09-15', 210000.00, 5, 1),
-('2026-10-01', '2026-10-15', 215000.00, 5, 1),
+('2026-08-01', '2026-08-15', 220000, 5, 1),
+('2026-09-01', '2026-09-15', 210000, 5, 1),
+('2026-10-01', '2026-10-15', 215000, 5, 1),
 
 -- Edificio 7: Altos de Las Condes (id: 13, 14, 15)
-('2026-08-01', '2026-08-15', 1200000.00, 7, 1),
-('2026-09-01', '2026-09-15', 1250000.00, 7, 1),
-('2026-10-01', '2026-10-15', 1300000.00, 7, 1);
+('2026-08-01', '2026-08-15', 1200000, 7, 1),
+('2026-09-01', '2026-09-15', 1250000, 7, 1),
+('2026-10-01', '2026-10-15', 1300000, 7, 1);
 
 -- =====================================================
 -- 8. PAGO_GASTO_COMUN_DEPARTAMENTO
@@ -136,34 +136,34 @@ INSERT INTO Gasto_Comun (fecha_emision, fecha_vencimiento, monto, id_edificio, i
 -- =====================================================
 INSERT INTO Pago_Gasto_Comun_Departamento (monto, fecha_pago, estado_pago, id_gasto_comun, id_departamento) VALUES
 -- AGOSTO 2026 (Gasto_Comun: 1, 4, 7, 13)
-(100000.00, '2026-08-05', 'Pagado',    1, 1),   -- Depto 101 (Edif 1) al día
-(100000.00, NULL,         'Pendiente', 1, 2),   -- Depto 102 (Edif 1) Moroso mes 1
-(100000.00, NULL,         'Pendiente', 1, 3),   -- Depto 201 (Edif 1) Moroso mes 1
-(100000.00, '2026-08-05', 'Pagado',    4, 6),   -- Depto 101 (Edif 2) al día
-(100000.00, NULL,         'Pendiente', 4, 7),   -- Depto 102 (Edif 2) Moroso
-(80000.00,  '2026-08-04', 'Pagado',    7, 12),  -- Depto 101 (Edif 4) al día
-(100000.00, NULL,         'Pendiente', 7, 14),  -- Depto 201 (Edif 4) Moroso mes 1
-(400000.00, '2026-08-05', 'Pagado',    13, 19), -- Depto 101 (Edif 7) al día
-(450000.00, NULL,         'Pendiente', 13, 21), -- Depto 301 Penthouse (Edif 7) Moroso
+(100000, '2026-08-05', 'Pagado',    1, 1),   -- Depto 101 (Edif 1) al día
+(100000, NULL,         'Pendiente', 1, 2),   -- Depto 102 (Edif 1) Moroso mes 1
+(100000, NULL,         'Pendiente', 1, 3),   -- Depto 201 (Edif 1) Moroso mes 1
+(100000, '2026-08-05', 'Pagado',    4, 6),   -- Depto 101 (Edif 2) al día
+(100000, NULL,         'Pendiente', 4, 7),   -- Depto 102 (Edif 2) Moroso
+(80000,  '2026-08-04', 'Pagado',    7, 12),  -- Depto 101 (Edif 4) al día
+(100000, NULL,         'Pendiente', 7, 14),  -- Depto 201 (Edif 4) Moroso mes 1
+(400000, '2026-08-05', 'Pagado',    13, 19), -- Depto 101 (Edif 7) al día
+(450000, NULL,         'Pendiente', 13, 21), -- Depto 301 Penthouse (Edif 7) Moroso
 
 -- SEPTIEMBRE 2026 (Gasto_Comun: 2, 5, 8, 14)
-(104000.00, '2026-09-05', 'Pagado',    2, 1),   -- Depto 101 (Edif 1) al día
-(104000.00, NULL,         'Pendiente', 2, 2),   -- Depto 102 (Edif 1) Moroso mes 2
-(104000.00, '2026-09-09', 'Pagado',    2, 3),   -- Depto 201 (Edif 1) al día
-(103000.00, '2026-09-05', 'Pagado',    5, 6),   -- Depto 101 (Edif 2) al día
-(82000.00,  '2026-09-06', 'Pagado',    8, 12),  -- Depto 101 (Edif 4) al día
-(102000.00, NULL,         'Pendiente', 8, 14),  -- Depto 201 (Edif 4) Moroso mes 2
-(415000.00, '2026-09-05', 'Pagado',    14, 19), -- Depto 101 (Edif 7) al día
-(460000.00, '2026-09-08', 'Pagado',    14, 21), -- Depto 301 Penthouse (Edif 7) al día
+(104000, '2026-09-05', 'Pagado',    2, 1),   -- Depto 101 (Edif 1) al día
+(104000, NULL,         'Pendiente', 2, 2),   -- Depto 102 (Edif 1) Moroso mes 2
+(104000, '2026-09-09', 'Pagado',    2, 3),   -- Depto 201 (Edif 1) al día
+(103000, '2026-09-05', 'Pagado',    5, 6),   -- Depto 101 (Edif 2) al día
+(82000,  '2026-09-06', 'Pagado',    8, 12),  -- Depto 101 (Edif 4) al día
+(102000, NULL,         'Pendiente', 8, 14),  -- Depto 201 (Edif 4) Moroso mes 2
+(415000, '2026-09-05', 'Pagado',    14, 19), -- Depto 101 (Edif 7) al día
+(460000, '2026-09-08', 'Pagado',    14, 21), -- Depto 301 Penthouse (Edif 7) al día
 
 -- OCTUBRE 2026 (Gasto_Comun: 3, 6, 9, 15)
-(102000.00, NULL,         'Pendiente', 3, 1),   -- Depto 101 (Edif 1) Moroso en oct
-(102000.00, NULL,         'Pendiente', 3, 2),   -- Depto 102 (Edif 1) Moroso mes 3 (3 meses continuos)
-(102000.00, '2026-10-06', 'Pagado',    3, 3),   -- Depto 201 (Edif 1) al día
-(84000.00,  '2026-10-03', 'Pagado',    9, 12),  -- Depto 101 (Edif 4) al día
-(105000.00, NULL,         'Pendiente', 9, 14),  -- Depto 201 (Edif 4) Moroso mes 3 (3 meses continuos)
-(430000.00, '2026-10-04', 'Pagado',    15, 19), -- Depto 101 (Edif 7) al día
-(480000.00, NULL,         'Pendiente', 15, 21); -- Depto 301 Penthouse (Edif 7) Moroso
+(102000, NULL,         'Pendiente', 3, 1),   -- Depto 101 (Edif 1) Moroso en oct
+(102000, NULL,         'Pendiente', 3, 2),   -- Depto 102 (Edif 1) Moroso mes 3 (3 meses continuos)
+(102000, '2026-10-06', 'Pagado',    3, 3),   -- Depto 201 (Edif 1) al día
+(84000,  '2026-10-03', 'Pagado',    9, 12),  -- Depto 101 (Edif 4) al día
+(105000, NULL,         'Pendiente', 9, 14),  -- Depto 201 (Edif 4) Moroso mes 3 (3 meses continuos)
+(430000, '2026-10-04', 'Pagado',    15, 19), -- Depto 101 (Edif 7) al día
+(480000, NULL,         'Pendiente', 15, 21); -- Depto 301 Penthouse (Edif 7) Moroso
 
 -- =====================================================
 -- 9. PAGO_GASTO_EDIFICIO
@@ -173,22 +173,22 @@ INSERT INTO Pago_Gasto_Comun_Departamento (monto, fecha_pago, estado_pago, id_ga
 -- =====================================================
 INSERT INTO Pago_Gasto_Edificio (monto, fecha_pago, id_edificio) VALUES
 -- Pagos Agosto 2026
-(150000.00, '2026-08-14', 1), -- id: 1 (Torre Central)
-(60000.00,  '2026-08-15', 2), -- id: 2 (Parque Almagro)
-(25000.00,  '2026-08-12', 5), -- id: 3 (Espacio Florida - menor gasto)
-(650000.00, '2026-08-20', 7), -- id: 4 (Altos de Las Condes)
+(150000, '2026-08-14', 1), -- id: 1 (Torre Central)
+(60000,  '2026-08-15', 2), -- id: 2 (Parque Almagro)
+(25000,  '2026-08-12', 5), -- id: 3 (Espacio Florida - menor gasto)
+(650000, '2026-08-20', 7), -- id: 4 (Altos de Las Condes)
 
 -- Pagos Septiembre 2026
-(210000.00, '2026-09-08', 1), -- id: 5 (Torre Central)
-(45000.00,  '2026-09-15', 2), -- id: 6 (Parque Almagro)
-(30000.00,  '2026-09-14', 5), -- id: 7 (Espacio Florida - menor gasto)
-(580000.00, '2026-09-22', 7), -- id: 8 (Altos de Las Condes)
+(210000, '2026-09-08', 1), -- id: 5 (Torre Central)
+(45000,  '2026-09-15', 2), -- id: 6 (Parque Almagro)
+(30000,  '2026-09-14', 5), -- id: 7 (Espacio Florida - menor gasto)
+(580000, '2026-09-22', 7), -- id: 8 (Altos de Las Condes)
 
 -- Pagos Octubre 2026
-(140000.00, '2026-10-05', 1), -- id: 9 (Torre Central)
-(55000.00,  '2026-10-08', 2), -- id: 10 (Parque Almagro)
-(28000.00,  '2026-10-06', 5), -- id: 11 (Espacio Florida - menor gasto)
-(720000.00, '2026-10-09', 7); -- id: 12 (Altos de Las Condes)
+(140000, '2026-10-05', 1), -- id: 9 (Torre Central)
+(55000,  '2026-10-08', 2), -- id: 10 (Parque Almagro)
+(28000,  '2026-10-06', 5), -- id: 11 (Espacio Florida - menor gasto)
+(720000, '2026-10-09', 7); -- id: 12 (Altos de Las Condes)
 
 -- =====================================================
 -- 10. GASTO_EDIFICIO
@@ -196,19 +196,19 @@ INSERT INTO Pago_Gasto_Edificio (monto, fecha_pago, id_edificio) VALUES
 -- =====================================================
 INSERT INTO Gasto_Edificio (descripcion, monto, fecha_emision, fecha_vencimiento, id_pago_gasto_edificio) VALUES
 -- Detalle Agosto 2026
-('Mantención ascensores', 150000.00, '2026-08-01', '2026-08-20', 1),
-('Jardinería y limpieza', 60000.00, '2026-08-01', '2026-08-20', 2),
-('Cambio ampolletas comunes', 25000.00, '2026-08-01', '2026-08-20', 3),
-('Seguridad y conserjería 24/7', 650000.00, '2026-08-01', '2026-08-20', 4),
+('Mantención ascensores', 150000, '2026-08-01', '2026-08-20', 1),
+('Jardinería y limpieza', 60000, '2026-08-01', '2026-08-20', 2),
+('Cambio ampolletas comunes', 25000, '2026-08-01', '2026-08-20', 3),
+('Seguridad y conserjería 24/7', 650000, '2026-08-01', '2026-08-20', 4),
 
 -- Detalle Septiembre 2026
-('Reparación bomba de agua', 210000.00, '2026-09-01', '2026-09-20', 5),
-('Insumos de conserjería', 45000.00, '2026-09-01', '2026-09-20', 6),
-('Recarga extintores', 30000.00, '2026-09-01', '2026-09-20', 7),
-('Mantención piscina y calderas', 580000.00, '2026-09-01', '2026-09-20', 8),
+('Reparación bomba de agua', 210000, '2026-09-01', '2026-09-20', 5),
+('Insumos de conserjería', 45000, '2026-09-01', '2026-09-20', 6),
+('Recarga extintores', 30000, '2026-09-01', '2026-09-20', 7),
+('Mantención piscina y calderas', 580000, '2026-09-01', '2026-09-20', 8),
 
 -- Detalle Octubre 2026
-('Mantención preventiva caldera', 140000.00, '2026-10-01', '2026-10-20', 9),
-('Pintura pasillos', 55000.00, '2026-10-01', '2026-10-20', 10),
-('Artículos básicos de aseo', 28000.00, '2026-10-01', '2026-10-20', 11),
-('Certificación de gas y ascensores', 720000.00, '2026-10-01', '2026-10-20', 12);
+('Mantención preventiva caldera', 140000, '2026-10-01', '2026-10-20', 9),
+('Pintura pasillos', 55000, '2026-10-01', '2026-10-20', 10),
+('Artículos básicos de aseo', 28000, '2026-10-01', '2026-10-20', 11),
+('Certificación de gas y ascensores', 720000, '2026-10-01', '2026-10-20', 12);

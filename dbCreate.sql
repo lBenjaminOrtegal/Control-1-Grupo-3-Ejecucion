@@ -79,7 +79,7 @@ CREATE TABLE IF NOT EXISTS Gasto_Comun (
 	id INT AUTO_INCREMENT PRIMARY KEY,
     fecha_emision DATE NOT NULL,
     fecha_vencimiento DATE NOT NULL,
-    monto DECIMAL(12, 2) NOT NULL,
+    monto DECIMAL(12, 0) NOT NULL,
     
     id_edificio INT NOT NULL,
     id_tipo_gasto_comun INT NOT NULL,
@@ -93,7 +93,7 @@ CREATE TABLE IF NOT EXISTS Gasto_Comun (
 
 CREATE TABLE IF NOT EXISTS Pago_Gasto_Comun_Departamento (
 	 id INT AUTO_INCREMENT PRIMARY KEY,
-     monto DECIMAL(12, 2) NOT NULL,
+     monto DECIMAL(12, 0) NOT NULL,
      fecha_pago DATE NULL,
      estado_pago ENUM('Pendiente', 'Pagado') NOT NULL DEFAULT 'Pendiente',
      
@@ -112,7 +112,7 @@ CREATE TABLE IF NOT EXISTS Pago_Gasto_Comun_Departamento (
 
 CREATE TABLE IF NOT EXISTS Pago_Gasto_Edificio (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    monto DECIMAL(12, 2) NOT NULL,
+    monto DECIMAL(12, 0) NOT NULL,
     fecha_pago DATE NOT NULL,
 
     id_edificio INT NOT NULL,
@@ -124,7 +124,7 @@ CREATE TABLE IF NOT EXISTS Pago_Gasto_Edificio (
 CREATE TABLE IF NOT EXISTS Gasto_Edificio (
 	id INT AUTO_INCREMENT PRIMARY KEY,
     descripcion TEXT NOT NULL,
-    monto DECIMAL(12, 2) NOT NULL,
+    monto DECIMAL(12, 0) NOT NULL,
     fecha_emision DATE NOT NULL,
     fecha_vencimiento DATE NOT NULL,
     

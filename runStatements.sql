@@ -38,8 +38,7 @@ SELECT
     MONTH(p.fecha_pago) AS mes,
     SUM(p.monto) AS total_pagado
 FROM Pago_Gasto_Edificio p
-JOIN Gasto_Edificio ge ON p.id_gasto_edificio = ge.id
-JOIN Edificio e ON ge.id_edificio = e.id
+JOIN Edificio e ON p.id_edificio = e.id
 GROUP BY
     e.id,
     e.nombre,
